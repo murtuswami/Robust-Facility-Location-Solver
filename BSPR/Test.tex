@@ -1,0 +1,109 @@
+\documentclass[10pt]{article}
+\usepackage[a4paper, tmargin=0.75in, lmargin=0.80in, rmargin=0.80in, bmargin=1in]{geometry}
+\usepackage{hyperref}
+%\usepackage{multicol}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=magenta,      
+    urlcolor=blue,
+    citecolor=black,
+}
+\usepackage[backend=biber,style=authoryear]{biblatex}
+\addbibresource{references.bib} %Import the bibliography file
+\usepackage{graphicx}
+\pagestyle{empty}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ENTER SOME IMPORTANT INFORMATION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\studentname}{Harsha Ramachandran}
+\newcommand{\studentnumber}{K1763453}
+\newcommand{\researchcentre}{King's College London}
+\newcommand{\projecttitle}{Robustness Analysis for Facility Location Problems}
+\newcommand{\supervisor}{Dr Dimitrios Letsios}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{center}
+{\Huge{Background,Specification and Design Report}} \\
+\vspace{2mm}
+{\Large{Department of Informatics}} \\
+\vspace{1mm}
+{\Large{King's College London}}
+\end{center}
+
+\vspace{5mm}
+\hrule
+\vspace{1mm}
+\hrule
+
+\vspace{3mm}
+\begin{tabular}{ll} 
+Name:           	        & {\studentname}   \\ 
+Student Number: 	        & {\studentnumber} \\ 
+Research Centre: 	        & {\researchcentre}  \\ 
+Research Project Title: 	& {\projecttitle}  \\ 
+Primary Supervisor: 	    & {\supervisor}  \\ 
+\end{tabular}
+
+\vspace{3mm}
+\hrule
+\vspace{1mm}
+\hrule
+
+\section{Introduction}
+The Facility Location Problem ( FLP)  is a well known optimization problem. In its most general form, it Involves assigning facilities to customers while minimizing the distances or cost associated with serving said customers. The most obvious application of  this is to businesses selling products, but it also has a very important role in several critical infrastructure domains such as healthcare. Given its broad scope and applicability to many real life scenarios many researchers have developed models and solutions to solving these problems.\\
+
+Purely theoretical Models created to solve the FLP are useful for understanding the nature of the problem. However they are rarely suitable for real world application without adjustment as they do not consider real world factors .For example there is uncertainty regarding the demand of customers, a model that does not take this into account will not perform well. The best known way of dealing with uncertainty is stochastic optimization. It requires knowledge of probabilities and uses this to produce an expected best solution.Another method for dealing with uncertainty that has recently emerged, called robust optimization provides a way to tackle this. Robust optimization parametrizes values that are uncertain in  a set and “hedges solutions against worse case scenario realizations”.Robust Optimization - an overview | ScienceDirect Topics\\
+
+A Robust model under demand uncertainty has an abundance of real world applicability. Robust models are useful for decisions that cannot be easily removed once changes, for example with the placement of chemical plant facilities  Robust Optimization - an overview | ScienceDirect Topics. In regard to the facility location problem with  demand uncertainty, a good solution will provide protection for suppliers when deciding on their facility locations.  
+
+
+
+\section{Aims}
+The primary aim of this project is to model the Uncapacitated  Facility Location Problem with demand uncertainty,create a robust solution for the model and analyze its effectiveness . A Multiple stage approach will be taken to achieve these objectives in a consistent manner. 
+
+In the first stage,  the non-robust uncapacitated facility location problem will be explored. A heuristic method will be developed for solving the problem under perfect knowledge. This method will be tested against different data-sets that are already available in the literature with optimal or best known values. The results from the data will be used to understand the solution’s behavior when the data parameters are tuned and to ensure its efficacy .The purpose of this stage is to develop a good understanding of the problem and solution,to understand how the variance in data interacts with the proposed solution. 
+
+The second stage of the project will propose a robust model under demand uncertainty and develop an approximate solution.. A Data pipeline will be developed which will either extend existing data generators, or modify existing data to introduce robustness. 
+
+
+\subsection{Short-term Goals}
+\label{sec:shorttermgoals}
+My immediate short-term goals are outlined below.
+\begin{enumerate}
+    \item Short-term goal 1.
+    \item Short-term goal 2.
+    \item Short-term goal 3.
+\end{enumerate}
+
+\subsection{Long-term Goals}
+\label{sec:longtermgoals}
+The project's long-term goals are outlined below.
+\begin{enumerate}
+    \item Long-term goal 1.
+    \item Long-term goal 2.
+    \item Long-term goal 3.
+\end{enumerate}
+
+
+\newpage
+\printbibliography
+
+
+\end{document}
