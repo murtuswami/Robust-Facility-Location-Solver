@@ -17,17 +17,23 @@ class LocalSearchFast:
            return False
     
     def run(self):
+        f = open("ls_values.txt","w")
+      
         while not self.terminate():
             #print(self.objectiveValue(self.bSol))
+            f.write(str(self.objectiveValue(self.bSol)))
+            f.write("\n")
             hn = self.best_neighbour(self.cSol)
             bSol_value = self.objectiveValue(self.bSol)
             hn_value = self.objectiveValue(hn)
+         
             if bSol_value <= hn_value:
                 return bSol_value
             cost = bSol_value - hn_value
             if cost >= 0:
                 self.bSol = copy.copy(hn)
                 self.cSol = copy.copy(hn)
+           
         return self.bSol
         
     

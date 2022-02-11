@@ -59,14 +59,20 @@ def generate_random_solution():
 instance =  LocalSearchFast(generate_random_solution(),customernumber,openingcosts,distances)
 bestVal = instance.run()
 iter = 1
-while(iter < 50):
+f = open("iterated_local_search.txt","a")
+while(True):
     iter = iter +1
-    print("Best Value is" ,bestVal)
-    print(iter)
+    print("Best Value is" ,bestVal, "Iteration: ", iter)
     thisVal = LocalSearchFast(generate_random_solution(),customernumber,openingcosts,distances).run()
+    f.write("\n")
+    f.write(str(iter))
+    f.write(",")
+    f.write(str(thisVal))
+    f.write(",")
+    f.write(str(bestVal))
     if thisVal < bestVal:
         bestVal = thisVal
-f = open("iterated_local_search.txt","a")
+
 f.write("\n")
 f.write(datafile.name)
 f.write(" ")
