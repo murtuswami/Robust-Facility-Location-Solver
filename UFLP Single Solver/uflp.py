@@ -2,7 +2,7 @@
 
 from pyomo.environ import *
 
-model = AbstractModel(name="(WL)")
+model = AbstractModel(name="(uflp)")
 model.N = Set()  # warehouses / supply
 model.M = Set()  # cities / demand
 

@@ -1,17 +1,18 @@
 #The purpose of this file is to convert data to .dat format for the Uncapacitated Facility Location Problem
-#For the model file see uflp.py 
+#For the model file see AbstractWarehouse.py 
 #The data to be processed is in the simple FILE type from http://resources.mpi-inf.mpg.de/departments/d1/projects/benchmarks/UflLib/data-format.html
-
-def convert(filename):
+import os
+import tkinter
+from tkinter import filedialog
+def convert():
     print("converting data ... ")
     arr = []
-    file = ""
-    try:
-        file = open("data/raw/" + filename)
-    except:
-        print("no file for filename " + filename)
-        return  
-
+    tkinter.Tk().withdraw() # prevents an empty tkinter window from appearing
+    print("Please select file with input data")
+    inputdatapath = filedialog.askopenfilename()
+    print(inputdatapath)
+    filename = os.path.basename(inputdatapath)
+    file = open(inputdatapath)
     for line in file:
         arr.append(line.rstrip().split())
 
@@ -34,7 +35,7 @@ def convert(filename):
             paramd.append( (fac,index+1,c ) )
 
     try:
-        f = open("data/converted/" + filename+".dat", "x")
+        f = open(filename+".dat", "x")
         s = "set N := "
         for x in setN:
             s += str(x)
@@ -66,6 +67,7 @@ def convert(filename):
        
         pass
     print("finished data conversion")
+    return filename
     
 
 
