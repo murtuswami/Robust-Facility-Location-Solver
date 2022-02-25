@@ -24,6 +24,7 @@ initVals = arr[1]
 del arr[:2]
 m = int(initVals[1])
 n = int(initVals[0]) 
+print(m)
 setM = [*range(1,m+1)]
 setN = [*range(1,n+1)]
 paramo ={}
@@ -56,17 +57,30 @@ for x in arrRepresentation:
     averages.append(sum(x)/n) # sum of facility costs for a customer divided by number of facilities 
 deviations = []
 dp = 5
-for x in averages:
-    deviations.append((x/100)* 5)
+for n,x in enumerate(averages):
+    deviations.append((n+1,(x/100)* 5))
 
-print(deviations)
 
+#sort by deviations 
+sortByDeviation = sorted(deviations,key = lambda tup:tup[1],reverse=True)
+custSortByDeviation = [x[0] for x in sortByDeviation ]
+print(custSortByDeviation)
+
+
+print(sortByDeviation)
+devDict = {} # create dictionary 
+noDevDict = {} # dictionary with all values as 0, represents normal problem 
+for d in sortByDeviation:   
+    devDict.update({d[0]:d[1]})
+    noDevDict.update({d[0]:0})
+print(devDict)
+print(noDevDict)
 def make_model(dis,op,N,M,d,dc):
     #distance is distances dictionary in the form (n,m):d , where n is a customer , m is a demand node, d is distance between both
     #op is opening costs in form n:c , where is facility c is cost 
     #n is a set containing the customers identity [1,..n] starting from 1 
     #m is a set containing the demand nodes identity [1,...m], which have been sorted in order of their deviation constant values in descending order 
-    #dev is a set of devation constants (worst case deviation), [(1:d),...(n:d))] 
+    #dev is a set of devation constants (worst case deviation), [(1:d),...(m:d))] each customer has a single deviation constant 
     #dc is the deviation constant term dl for this particular nominal instance 
     model = ConcreteModel(name="(uflp)")
 
@@ -74,8 +88,9 @@ def make_model(dis,op,N,M,d,dc):
     model.x = Var(N, M, bounds=(0,1)) # (selected routes )
     model.y = Var(N, within=Binary)       #selected warehouses 
 
+
     def obj_rule(model):    
-        return sum( (dis[n,m] +max({d[n,m],0}))*model.x[n,m] for n in N for m in M) + sum(op[n]*model.y[n] for n in N ) 
+        return sum( (dis[n,m] +max({d[m]- dc,0}))*model.x[n,m] for n in N for m in M) + sum(op[n]*model.y[n] for n in N ) 
     model.obj = Objective(rule=obj_rule)
 
     def restrict_cust(model, m):
@@ -90,9 +105,27 @@ def make_model(dis,op,N,M,d,dc):
 
 opt = SolverFactory('cplex')
 opt.options['timelimit'] = 30
-model = make_model(paramd,paramo,setN,setM)
-print(model)
-opt.solve(model,tee = True)
-print( pyo.value(model.obj) )
+solutions = []
+for l in devDict.keys():
+    wc = m
+    dc = devDict.get(l)
+    model = make_model(paramd,paramo,setN,setM,devDict,dc)
+    opt.solve(model)
+    print(dc*wc +pyo.value(model.obj) )
+    solutions.append(dc*wc + pyo.value(model.obj))
+
+solution = min ( solutions )
+#make a dictionary for input when all values take on their worst case realization
+worstCaseDistances = {}
+for key in paramd:
+    worstCaseDistances.update({key: paramd.get(key)+ devDict.get(key[1])})
+
+print(worstCaseDistances)
+worstCaseModel = make_model(worstCaseDistances,paramo,setN,setM,noDevDict,0)
+opt.solve(worstCaseModel)
+print("Robust Solution:", solution)
+print("Worst Case Realaization", pyo.value(worstCaseModel.obj))
+
+
 
 
