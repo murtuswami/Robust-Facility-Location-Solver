@@ -78,8 +78,8 @@ print(devDict)
 print(noDevDict)
 
 #transform deviations using pythagoras theorem, this may be different for a different uncertainty shape 
-for d in devDict.keys():
-    devDict.update({d:math.sqrt((d*d) +(d*d))})
+#for d in devDict.keys():
+#   devDict.update({d:math.sqrt((d*d) +(d*d))})
     
 def make_model(dis,op,N,M,d,dc):
     #distance is distances dictionary in the form (n,m):d , where n is a customer , m is a demand node, d is distance between both
