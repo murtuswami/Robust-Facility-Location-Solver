@@ -6,6 +6,7 @@ import os
 import pyomo.environ as pyo
 from pyomo.opt import SolverFactory
 from pyomo.environ import *
+import math
 
 import functools
 
@@ -75,6 +76,11 @@ for d in sortByDeviation:
     noDevDict.update({d[0]:0})
 print(devDict)
 print(noDevDict)
+
+#transform deviations using pythagoras theorem, this may be different for a different uncertainty shape 
+for d in devDict.keys():
+    devDict.update({d:math.sqrt((d*d) +(d*d))})
+    
 def make_model(dis,op,N,M,d,dc):
     #distance is distances dictionary in the form (n,m):d , where n is a customer , m is a demand node, d is distance between both
     #op is opening costs in form n:c , where is facility c is cost 
