@@ -36,6 +36,7 @@ class LocalSearchFast:
     """
     def run(self):
         while True:
+           
             hn = self.best_neighbour(self.cSol)
             bSol_value = self.objectiveValue(self.bSol)
             hn_value = self.objectiveValue(hn)
@@ -168,7 +169,7 @@ class LocalSearchFast:
 
         return highest_neighbour
 
-      """
+    """
     Parameters
         n: A 1D Solution array where the assumption that each assigned facility is the closest one holds 
     Returns 

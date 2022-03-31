@@ -5,10 +5,8 @@ from tkinter import filedialog
 import os
 import pyomo.environ as pyo
 from pyomo.opt import SolverFactory
-from pyomo.environ import *
-import math
+from model import make_model
 
-import functools
 
 print("converting data ... ")
 arr = []
@@ -71,45 +69,7 @@ print(devDict)
 #   devDict.update({d:math.sqrt((d*d) +(d*d))})
     
 # this is not used in modelling but is included to show what a more production friendly alternative might look like 
-def make_robust_model(dis,op,N,M,d,dc):
- 
-    model = ConcreteModel(name="(uflp_robust)")
-    model.x = Var(N, M, bounds=(0,1)) # (selected routes )
-    model.y = Var(N, within=Binary)       #selected facilities
 
-    def obj_rule(model):    
-        return sum( (dis[n,m] +max((d[m]- dc))*model.x[n,m] for n in N for m in M) + sum(op[n]*model.y[n] for n in N ) 
-    model.obj = Objective(rule=obj_rule)
-
-    def restrict_cust(model, m):
-        return sum(model.x[n,m] for n in N) == 1
-    model.one_per_cust = Constraint(M,rule=restrict_cust)
-
-    def must_be_active(model, n, m):
-        return model.x[n,m] <= model.y[n]
-    model.warehouse_active = Constraint(N, M, rule=must_be_active)
-    
-    return model
-def make_model(dis,op,N,M):
-
-    model = ConcreteModel(name="(uflp)")
-
-
-    model.x = Var(N, M, bounds=(0,1)) 
-    model.y = Var(N, within=Binary)      
-
-    def obj_rule(model):
-        return sum(dis[n,m]*model.x[n,m] for n in N for m in M) + sum(op[n]*model.y[n] for n in N )
-    model.obj = Objective(rule=obj_rule)
-
-    def restrict_cust(model, m):
-        return sum(model.x[n,m] for n in N) == 1
-    model.one_per_cust = Constraint(M,rule=restrict_cust)
-
-    def must_be_active(model, n, m):
-        return model.x[n,m] <= model.y[n]
-    model.warehouse_active = Constraint(N, M, rule=must_be_active)
-    return model
 robust_solutions = []
 arr_wc = [0,10,40]
 #for wc in range (0,3):
