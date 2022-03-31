@@ -1,74 +1,53 @@
-"""Iterated Local Search using the Fast Local Search as a subroutine. Initial Values generated randomly at each iteration. Writes results to csv in the form (iteration,value obtained, best value obtained so far)"""
-from localSearchFast import LocalSearchFast
+"""
+ Iterated Local Search using the Fast Local Search as a subroutine.
+ Initial Values generated randomly at each iteration.
+ Writes results to csv in the form (iteration,value obtained, best value obtained so far)
+"""
+#from localSearchFast import LocalSearchFast
 import tkinter
 from tkinter import filedialog
 import random
+import os
 
+import importlib.util
+### Relative imports from parent directory  ### 
+path = os.getcwd()
+parent = os.path.abspath(os.path.join(path, os.pardir)) 
 
-### Open File and process data ###
-tkinter.Tk().withdraw() # prevents an empty tkinter window from appearing
-print("Please select file with input data")
-inputdatapath = filedialog.askopenfilename()
-datafile = open(inputdatapath)
-arr =[]
-for line in datafile:
-    arr.append(line.rstrip().split())
+    ### taken from https://stackoverflow.com/questions/67631/how-to-import-a-module-given-the-full-path ###
+spec = importlib.util.spec_from_file_location("LocalSearchFast", parent + "/localSearchFast.py")
+spec2 = importlib.util.spec_from_file_location("generateRandomSolution", parent + "/generateRandomSolution.py")
+spec3 = importlib.util.spec_from_file_location("getAndProcessData", parent + "/processData.py")
+localSearchFast = importlib.util.module_from_spec(spec)
+generateRandomSolution = importlib.util.module_from_spec(spec2)
+processData = importlib.util.module_from_spec(spec3)
+spec.loader.exec_module(localSearchFast)
+spec2.loader.exec_module(generateRandomSolution)
+spec3.loader.exec_module(processData)
+    ### End of copied code ###
 
-initVals = arr[1]
-del arr[:2]
-customernumber = int(initVals[1])
-facilitynumber = int(initVals[0]) 
-openingcosts = []
-distances = []  #Each subarray represents city i and its cost of connecting to j denoted by internal index 
+### Data Selection and processing ### 
 
-for x in arr:
-    oc = x[1]
-    openingcosts.append(int(oc)) # index i correspondes to facility i +1 
-    del x[:2]
-    cityarr = []
-    for y in x:
-        #each y entry is the cost of connecting the city represented by x to customer represented by index in y 
-        cityarr.append(int(y))
-    distances.append(cityarr)
-
-
-#### Generates Random Initial Solution for use at each local optimum descent ###
-def generate_random_solution():
-    #Open a random number of facilities 
-    number_open = random.randint(1,facilitynumber) 
-    opened = []
-    for _ in range(number_open):
-        open_this = random.randrange(facilitynumber)
-        while open_this in opened:
-         open_this = random.randrange(facilitynumber)
-        opened.append(open_this)
-    #calculate solution array under this open set of facilities 
-    sol = []
-    for x in range(customernumber):
-        best = None
-        best_val= None
-        for y in opened:
-            val = distances[y][x]
-            if best == None or val < best_val:
-                best = y
-                best_val = val
-        sol.append(best)
-    return sol
-
-### Run Fast Local Search Procedure 50 times descending to Local Optimum and recording best obtained value at each procedure ### 
+facilitynumber,customernumber,distances,openingcosts = processData.getAndProcessData()
+### Run Fast Local Search Procedure n times descending to Local Optimum and recording best obtained value at each procedure ### 
 iter = 1
 f = open("resultsILS.csv","w")
-while(iter <= 50):
-    print("Best Value is" ,bestVal, "Iteration: ", iter)
-    thisVal = LocalSearchFast(generate_random_solution(),customernumber,openingcosts,distances).run()
+bestVal= None
+n = 10 #adjust this to change the number of iterations of ILS
+while(iter <= n):
+    initSol = generateRandomSolution.generateRandomSolution(facilitynumber,customernumber,distances)
+    thisVal = localSearchFast.LocalSearchFast(initSol,customernumber,openingcosts,distances).run()
     f.write("\n")
     f.write(str(iter))
     f.write(",")
     f.write(str(thisVal))
     f.write(",")
     f.write(str(bestVal))
-    if thisVal < bestVal:
+    if bestVal == None:
         bestVal = thisVal
+    elif thisVal < bestVal:
+        bestVal = thisVal
+    print("best value is ", bestVal," at iteration " , iter)
     iter = iter +1
 f.write("\n")
 f.write("best result is: ")

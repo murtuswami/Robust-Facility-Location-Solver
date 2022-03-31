@@ -5,7 +5,7 @@ Detailed comments ommited, see  /localSearch/localSearchSlow.py for detailed doc
 """
 import copy
 import time
-class LocalSearchSlow:
+class LocalSearchSlowMod:
     def __init__(self, init,custs,facilsOpenCost,distances):
         self.cSol = init
         self.bSol = init

@@ -4,8 +4,7 @@ First select and open a random number of facilities
 Then extract a solution array from the open set of facilities
 """
 import random 
-import tkinter                  # For data file select
-from tkinter import filedialog  # For filedialog 
+
 
 def generateRandomSolution(f,c,d):
     #Open a random number of facilities 

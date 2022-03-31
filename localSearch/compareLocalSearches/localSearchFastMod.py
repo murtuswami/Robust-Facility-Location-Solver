@@ -7,7 +7,7 @@ Detailed comments ommited, see  /localSearch/localSearchFast.py for detailed doc
 
 import copy
 import time 
-class LocalSearchFast:
+class LocalSearchFastMod:
     def __init__(self, init,custs,facilsOpenCost,distances):
         self.cSol = init
         self.bSol = init

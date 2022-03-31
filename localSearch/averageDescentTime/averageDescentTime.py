@@ -26,12 +26,11 @@ spec3.loader.exec_module(processData)
 ### Data Selection and processing ### 
 
 facilitynumber,customernumber,distances,openingcosts = processData.getAndProcessData()
-print(facilitynumber)
-print(customernumber)
-print(openingcosts )
+
 ### Run Fast Local Search to descent 50 times, recording total time taken for each descent ###
 times = []
-for _ in range(50):
+n = 10
+for _ in range(n):
     initsol = generateRandomSolution.generateRandomSolution(facilitynumber,customernumber,distances)
     startTime = time.process_time()
     fast = localSearchFast.LocalSearchFast(initsol,customernumber,openingcosts,distances)

@@ -36,7 +36,7 @@ class LocalSearchFast:
     """
     def run(self):
         while True:
-           
+         
             hn = self.best_neighbour(self.cSol)
             bSol_value = self.objectiveValue(self.bSol)
             hn_value = self.objectiveValue(hn)
