@@ -41,18 +41,12 @@ All algorithms can accept datasets in the input format specified in
 https://resources.mpi-inf.mpg.de/departments/d1/projects/benchmarks/UflLib/data-format.html
 
 ### Running Local Search 
-
+The Fast Local Search implementation can be found in 
 #### Compare Local Searches 
+Compares running time between the Fast and Slow Local Search implementations. 
+Outputs four csv files containing total running time and process time at each neighbourhood step in same directory
 
-Purpose of this section is to compare running time between the Fast and Slow Local Search implementations. 
-It will output four csv files 
-
-* resultsSlow.csv : Time in seconds for descent to local optimum for slow local search implementation 
-* slowTimes.csv : Entries containing neighbour value and process time it was reached at in descent for slow Local Search
-* resultsFast.csv : Time in seconds for descent to local optimum for fast  local search implementation 
-* fastTimes.csv : Entries containing neighbour value and process time it was reached at in descent for Fast Local Search 
-
-To run 
+**To run**
 * Navigate to /localSearch/compareLocalSearches
 * Execute following command in CLI 
 ```
@@ -60,9 +54,22 @@ python compareLocalSearches.py
 ```
 * When prompted by file dialog select the file ga250a-1 from /localSearch/compareLocalSearches
 * CSV files will be saved in /localSearch/compareLocalSearches
+#### Iterated Local Search
+Runs Iterated Local Search to solve UFLP instance.
+Outputs csv file to same directory containing Best value obtained over iterated descents to local optimum 
+
+**To run**
+* Navigate to /localSearch/compareLocalSearches
+* Execute following command in CLI 
+```
+python iteratedLocalSearch.py
+```
+* When prompted by file dialog select the file ga250a-1 from same directory
 
 
 ### Running Optimization Solver
+Solves UFLP Data set using Pyomo model 
+Outputs CPLEX Log to same directory
 
 ### Running Robust Model 
 
