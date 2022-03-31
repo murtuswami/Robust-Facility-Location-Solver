@@ -28,10 +28,10 @@ The Robust Solver implements Cardinality Constrained Robustness, where each dema
     ```
 * If using CPLEX for the optimization model install from https://www.ibm.com/analytics/cplex-optimizer
 * If using another Optimzation solver with a Pyomo interface update the SolverFactory object parameters in 
-        - optimizationModel/solver.py
-        - robustModel/robustModelVaryGamma.py
-        - robustModel/worstCaseRealizations.py
-        - robustModel/robustSingleSolve.py
+    * optimizationModel/solver.py
+    * robustModel/robustModelVaryGamma.py
+    * robustModel/worstCaseRealizations.py
+    * robustModel/robustSingleSolve.py
 
 ## Execution 
 
