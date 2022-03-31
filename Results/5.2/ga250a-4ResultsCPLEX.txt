@@ -1,0 +1,109 @@
+Solver command line: ['C:\\Program Files\\IBM\\ILOG\\CPLEX_Studio201\\cplex\\bin\\x64_win64\\cplex.exe']
+
+
+Welcome to IBM(R) ILOG(R) CPLEX(R) Interactive Optimizer 20.1.0.0
+  with Simplex, Mixed Integer & Barrier Optimizers
+5725-A06 5725-A29 5724-Y48 5724-Y49 5724-Y54 5724-Y55 5655-Y21
+Copyright IBM Corp. 1988, 2020.  All Rights Reserved.
+
+Type 'help' for a list of available commands.
+Type 'help' followed by a command name for more
+information on commands.
+
+CPLEX> Logfile 'cplex.log' closed.
+Logfile 'results.txt' open.
+CPLEX> New value for time limit in seconds: 180
+CPLEX> Problem 'C:\Users\USER\AppData\Local\Temp\tmpz1kjytj4.pyomo.lp' read.
+Read time = 0.11 sec. (7.11 ticks)
+CPLEX> Problem name         : C:\Users\USER\AppData\Local\Temp\tmpz1kjytj4.pyomo.lp
+Objective sense      : Minimize
+Variables            :   62751  [Nneg: 1,  Box: 62500,  Binary: 250]
+Objective nonzeros   :   62750
+Linear constraints   :   62751  [Less: 62500,  Equal: 251]
+  Nonzeros           :  187501
+  RHS nonzeros       :     251
+
+Variables            : Min LB: 0.000000         Max UB: 1.000000       
+Objective nonzeros   : Min   : 100.0000         Max   : 2000.000       
+Linear constraints   :
+  Nonzeros           : Min   : 1.000000         Max   : 1.000000       
+  RHS nonzeros       : Min   : 1.000000         Max   : 1.000000       
+CPLEX> Version identifier: 20.1.0.0 | 2020-11-10 | 9bedb6d68
+CPXPARAM_TimeLimit                               180
+Found incumbent of value 376854.000000 after 0.02 sec. (5.01 ticks)
+Tried aggregator 1 time.
+MIP Presolve eliminated 1 rows and 1 columns.
+Reduced MIP has 62750 rows, 62750 columns, and 187500 nonzeros.
+Reduced MIP has 250 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.09 sec. (75.05 ticks)
+Probing time = 0.05 sec. (3.52 ticks)
+Tried aggregator 1 time.
+Detecting symmetries...
+Reduced MIP has 62750 rows, 62750 columns, and 187500 nonzeros.
+Reduced MIP has 250 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.19 sec. (111.43 ticks)
+Probing time = 0.06 sec. (3.78 ticks)
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+Root relaxation solution time = 10.92 sec. (2185.44 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+*     0+    0                       376854.0000        0.0000           100.00%
+*     0+    0                       267487.0000        0.0000           100.00%
+      0     0   257659.8561   106   267487.0000   257659.8561     3914    3.67%
+*     0+    0                       266444.0000   257659.8561             3.30%
+*     0+    0                       258159.0000   257659.8561             0.19%
+*     0+    0                       258097.0000   257659.8561             0.17%
+      0     0  -1.00000e+75     0   258097.0000   257659.8561     3914    0.17%
+Detecting symmetries...
+      0     2   257659.8561   106   258097.0000   257659.8561     3914    0.17%
+Elapsed time = 33.84 sec. (15228.89 ticks, tree = 0.02 MB, solutions = 5)
+      1     3   257664.9969   109   258097.0000   257659.9256     4233    0.17%
+      2     4   257691.0049   107   258097.0000   257659.9256     4736    0.17%
+      4     4   257701.8163    95   258097.0000   257659.9256     4926    0.17%
+      5     7   257740.8658    95   258097.0000   257691.0513     6825    0.16%
+      8     6   257752.1074    97   258097.0000   257691.0513     6303    0.16%
+      9     7   257727.1436    97   258097.0000   257691.0513     6976    0.16%
+     11     8   257756.2145    96   258097.0000   257691.0513     8182    0.16%
+     12     9   257742.2729    97   258097.0000   257691.0513     8290    0.16%
+     13     8   257803.1546    94   258097.0000   257691.0513     8172    0.16%
+     19    14   257776.3937    88   258097.0000   257704.8076    13214    0.15%
+Elapsed time = 66.92 sec. (20305.23 ticks, tree = 0.04 MB, solutions = 5)
+     26    17   257750.5312   104   258097.0000   257723.8481    16526    0.14%
+     31    26   257775.1350    92   258097.0000   257723.8481    33647    0.14%
+     37    39   257852.3628    87   258097.0000   257723.8481    51025    0.14%
+     43    37   257811.3640    96   258097.0000   257723.8481    49060    0.14%
+     50    46   257812.9274   102   258097.0000   257723.8481    53892    0.14%
+     59    47   257834.1697    98   258097.0000   257723.8481    54478    0.14%
+     73    63   257917.2100    87   258097.0000   257723.8481    65441    0.14%
+     87    68   257944.3288    74   258097.0000   257723.8481    67120    0.14%
+    105    94   257881.1554    85   258097.0000   257723.8481    75365    0.14%
+    125    91   258048.5133    56   258097.0000   257723.8481    73835    0.14%
+Elapsed time = 145.13 sec. (30662.49 ticks, tree = 17.29 MB, solutions = 5)
+    146   115   258088.3874    55   258097.0000   257723.8481    81125    0.14%
+    169   141   258000.8224    69   258097.0000   257723.8481    86733    0.14%
+*   173   150      integral     0   258061.0000   257723.8481    89922    0.13%
+    187   117   257797.0327   104   258061.0000   257723.8481    82367    0.13%
+    202   169   258032.8391    73   258061.0000   257723.8481    99905    0.13%
+
+Root node processing (before b&c):
+  Real time             =   33.64 sec. (15195.54 ticks)
+Parallel b&c, 8 threads:
+  Real time             =  146.55 sec. (19875.24 ticks)
+  Sync time (average)   =   10.18 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =  180.19 sec. (35070.78 ticks)
+
+Solution pool: 6 solutions saved.
+
+MIP - Time limit exceeded, integer feasible:  Objective =  2.5806100000e+05
+Current MIP best bound =  2.5772718473e+05 (gap = 333.815, 0.13%)
+Solution time =  180.20 sec.  Iterations = 106183  Nodes = 210 (175)
+Deterministic time = 35070.96 ticks  (194.62 ticks/sec)
+
+CPLEX> Incumbent solution written to file 'C:\Users\USER\AppData\Local\Temp\tmpm59swjk_.cplex.sol'.
+CPLEX> 

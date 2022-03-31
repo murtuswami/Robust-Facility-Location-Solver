@@ -1,0 +1,9 @@
+Dataset,I=J value ,Opening Costs,Average Descent Time (seconds)
+ga-250a-1,250,a,3.64
+ga-250b-1,250,b,4.32
+ga-250c-1,250,c,3.67
+ga-500-a-1,500,a,28.7
+ga500b-1,500,b,33.65
+ga500c-1,500,c,34.42
+ga750a-1,750,a,91.73
+ga750b-1,750,b,104.56
