@@ -26,14 +26,28 @@ The Robust Solver implements Cardinality Constrained Robustness, where each dema
     ```
     conda install -c conda-forge pyomo
     ```
+* If using CPLEX for the optimization model install from https://www.ibm.com/analytics/cplex-optimizer
+* If using another Optimzation solver with a Pyomo interface update the SolverFactory object parameters in 
+        - optimizationModel/solver.py
+        - robustModel/robustModelVaryGamma.py
+        - robustModel/worstCaseRealizations.py
+        - robustModel/robustSingleSolve.py
 
-### Executing program
+## Execution 
 
-* How to run the program
-* Step-by-step bullets
-```
-code blocks for commands
-```
+Each folder contains a single dataset to run and produce output on.
+A more detailed exploration can be done by running on instances in the /Data directory
+All algorithms can accept datasets in the input format specified in 
+https://resources.mpi-inf.mpg.de/departments/d1/projects/benchmarks/UflLib/data-format.html
+
+### Running Local Search 
+
+* 
+
+### Running Optimization Solver
+
+### Running Robust Model 
+
 
 ## Help
 
@@ -44,28 +58,26 @@ command to run if program contains helper info
 
 ## Authors
 
-Contributors names and contact info
-
-ex. Dominique Pizzie  
-ex. [@DomPizzie](https://twitter.com/dompizzie)
+Harsha Ramachandran
 
 ## Version History
 
-* 0.2
-    * Various bug fixes and optimizations
-    * See [commit change]() or See [release history]()
-* 0.1
-    * Initial Release
+* 1.0 
+    * Initial Release 
 
-## License
+### Data 
+Contains extracts from the two data sets from the Max Planck Institute For Informatics
+Access at  https://resources.mpi-inf.mpg.de/departments/d1/projects/benchmarks/UflLib/packages.html
 
-This project is licensed under the [NAME HERE] License - see the LICENSE.md file for details
+* Euclidian Benchmarks 
+* Koerkel-Ghosh Asymmetric Benchmarks 
 
-## Acknowledgments
 
-Inspiration, code snippets, etc.
-* [awesome-readme](https://github.com/matiassingers/awesome-readme)
-* [PurpleBooth](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
-* [dbader](https://github.com/dbader/readme-template)
-* [zenorocha](https://gist.github.com/zenorocha/4526327)
-* [fvcproductions](https://gist.github.com/fvcproductions/1bfc2d4aecb01a834b46)
+Data folder contains data sets and their optimal/best known solutions 
+https://resources.mpi-inf.mpg.de/departments/d1/projects/benchmarks/UflLib/data-format.html
+
+Data is Seperated into folders based on report section they appear in 
+
+### Results 
+
+
