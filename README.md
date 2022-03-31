@@ -41,7 +41,8 @@ All algorithms can accept datasets in the input format specified in
 https://resources.mpi-inf.mpg.de/departments/d1/projects/benchmarks/UflLib/data-format.html
 
 ### Running Local Search 
-####
+
+#### Compare Local Searches 
 * 
 
 ### Running Optimization Solver
