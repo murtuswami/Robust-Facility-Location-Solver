@@ -43,7 +43,24 @@ https://resources.mpi-inf.mpg.de/departments/d1/projects/benchmarks/UflLib/data-
 ### Running Local Search 
 
 #### Compare Local Searches 
-* 
+
+Purpose of this section is to compare running time between the Fast and Slow Local Search implementations. 
+It will output four csv files 
+
+* resultsSlow.csv : Time in seconds for descent to local optimum for slow local search implementation 
+* slowTimes.csv : Entries containing neighbour value and process time it was reached at in descent for slow Local Search
+* resultsFast.csv : Time in seconds for descent to local optimum for fast  local search implementation 
+* fastTimes.csv : Entries containing neighbour value and process time it was reached at in descent for Fast Local Search 
+
+To run 
+* Navigate to /localSearch/compareLocalSearches
+* Execute following command in CLI 
+```
+python compareLocalSearches.py
+```
+* When prompted by file dialog select the file ga250a-1 from /localSearch/compareLocalSearches
+* CSV files will be saved in /localSearch/compareLocalSearches
+
 
 ### Running Optimization Solver
 
