@@ -13,9 +13,9 @@ information on commands.
 CPLEX> Logfile 'cplex.log' closed.
 Logfile 'results.txt' open.
 CPLEX> New value for time limit in seconds: 180
-CPLEX> Problem 'C:\Users\USER\AppData\Local\Temp\tmpv2u7owyh.pyomo.lp' read.
+CPLEX> Problem 'C:\Users\USER\AppData\Local\Temp\tmpgz0xydis.pyomo.lp' read.
 Read time = 0.02 sec. (1.04 ticks)
-CPLEX> Problem name         : C:\Users\USER\AppData\Local\Temp\tmpv2u7owyh.pyomo.lp
+CPLEX> Problem name         : C:\Users\USER\AppData\Local\Temp\tmpgz0xydis.pyomo.lp
 Objective sense      : Minimize
 Variables            :   10101  [Nneg: 1,  Box: 10000,  Binary: 100]
 Objective nonzeros   :   10000
@@ -36,13 +36,13 @@ MIP Presolve eliminated 1 rows and 1 columns.
 Reduced MIP has 10100 rows, 10100 columns, and 30000 nonzeros.
 Reduced MIP has 100 binaries, 0 generals, 0 SOSs, and 0 indicators.
 Presolve time = 0.02 sec. (12.45 ticks)
-Probing time = 0.00 sec. (0.69 ticks)
+Probing time = 0.02 sec. (0.69 ticks)
 Tried aggregator 1 time.
 Detecting symmetries...
 Reduced MIP has 10100 rows, 10100 columns, and 30000 nonzeros.
 Reduced MIP has 100 binaries, 0 generals, 0 SOSs, and 0 indicators.
 Presolve time = 0.03 sec. (18.16 ticks)
-Probing time = 0.02 sec. (0.69 ticks)
+Probing time = 0.00 sec. (0.69 ticks)
 MIP emphasis: balance optimality and feasibility.
 MIP search method: dynamic search.
 Parallel mode: deterministic, using up to 8 threads.
@@ -68,8 +68,8 @@ Total (root+branch&cut) =    0.16 sec. (67.62 ticks)
 Solution pool: 3 solutions saved.
 
 MIP - Integer optimal solution:  Objective =  9.8846000000e+04
-Solution time =    0.16 sec.  Iterations = 652  Nodes = 0
-Deterministic time = 67.64 ticks  (433.62 ticks/sec)
+Solution time =    0.17 sec.  Iterations = 652  Nodes = 0
+Deterministic time = 67.64 ticks  (393.28 ticks/sec)
 
-CPLEX> Incumbent solution written to file 'C:\Users\USER\AppData\Local\Temp\tmp1u00syro.cplex.sol'.
+CPLEX> Incumbent solution written to file 'C:\Users\USER\AppData\Local\Temp\tmp01v24sr4.cplex.sol'.
 CPLEX> 
