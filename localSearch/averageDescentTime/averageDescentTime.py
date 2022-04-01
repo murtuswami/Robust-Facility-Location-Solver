@@ -1,5 +1,5 @@
 """
-Calculates the average descent time to local optimum over 50 descents for a chosen data set and writes value to a csv file.
+Calculates the average descent time to local optimum over n descents for a chosen data set and writes value to a csv file.
 """
 
 import time 
@@ -29,7 +29,7 @@ facilitynumber,customernumber,distances,openingcosts = processData.getAndProcess
 
 ### Run Fast Local Search to descent 50 times, recording total time taken for each descent ###
 times = []
-n = 10
+n = 10 # Adjust this to change the number of local optimum descents
 for _ in range(n):
     initsol = generateRandomSolution.generateRandomSolution(facilitynumber,customernumber,distances)
     startTime = time.process_time()

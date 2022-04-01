@@ -3,12 +3,8 @@
  Initial Values generated randomly at each iteration.
  Writes results to csv in the form (iteration,value obtained, best value obtained so far)
 """
-#from localSearchFast import LocalSearchFast
-import tkinter
-from tkinter import filedialog
-import random
-import os
 
+import os
 import importlib.util
 ### Relative imports from parent directory  ### 
 path = os.getcwd()
@@ -52,7 +48,6 @@ while(iter <= n):
 f.write("\n")
 f.write("best result is: ")
 f.write(str(bestVal))
-
 print("finished")
 
 

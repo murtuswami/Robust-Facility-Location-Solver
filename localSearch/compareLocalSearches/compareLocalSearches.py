@@ -19,9 +19,6 @@ and the values produced at each step of a the local search
 
 from localSearchSlowMod import LocalSearchSlowMod
 from localSearchFastMod import LocalSearchFastMod
-import tkinter
-from tkinter import filedialog
-import random
 import time 
 import os
 import importlib.util
@@ -49,13 +46,10 @@ initsol =generateRandomSolution.generateRandomSolution(facilitynumber,customernu
 
 
 
-
-
 ### Descend to local optimum from initial solution using slow method with modified time capturing ###
 print("starting slow search")
 slow = LocalSearchSlowMod(initsol,customernumber,openingcosts,distances)
 f = open("resultsSlow.csv","w")
-
 fs = time.process_time()
 valueslow = slow.run()
 print("obtained local optimum of:", valueslow)
@@ -64,7 +58,6 @@ print("\n\n\n")
 
 ### Descend to local optimum from initial solution using Fast method with modified time capturing ###
 print("starting fast search" )
-
 f = open("resultsFast.csv","w")
 fs = time.process_time()
 fast = LocalSearchFastMod(initsol,customernumber,openingcosts,distances)

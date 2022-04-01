@@ -7,14 +7,13 @@ import random
 
 """
 Parameters
-    init : Initial Solution, 1D array of facility numbers where index corresponds to a customer
-    custs: Integer value reflecting number of customers 
-    facilsOpenCost: Integer Array of opening costs, index corresponds to facility 
-    distances: 2D array of where entries reflect distances between facilities and customers. Indexed in form [customer][facility]
+    f: Number of facilities in problem
+    c: Number of customers in problem
+    d: 2D Array of distances 
 Returns 
-    n/a
+    Array of length c with entries in range f. Corresponds to selected facility for customer
 Description 
-    Captures parameters as global variables and initializes instance LocalSearchFast
+    Takes problem input instances and randomly generates a feasible solution 
 """
 def generateRandomSolution(f,c,d):
     #Open a random number of facilities 
@@ -30,6 +29,7 @@ def generateRandomSolution(f,c,d):
     for x in range(c):
         best = None
         best_val= None
+        #Calculate best open facility for customer x
         for y in open:
             val = d[y][x]
             if best == None or val < best_val:
