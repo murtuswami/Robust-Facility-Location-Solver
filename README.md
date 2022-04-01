@@ -125,7 +125,7 @@ python robustModelVaryGamma.py
 
 
 
-### Data 
+## Data 
 /data
 Contains extracts from the two data sets from the Max Planck Institute For Informatics.
 Data is seperated into folders according to which section of the report they are used in.
@@ -142,10 +142,10 @@ https://resources.mpi-inf.mpg.de/departments/d1/projects/benchmarks/UflLib/data-
 * Optimal & Best Known solutions are in .opt & .bub formats 
 
 
-### Results 
-/results
-Contains results used for data analysis in report. 
-Seperated into folders according to which section of report results used in. 
+## Results 
+/results <br />
+Contains results used for data analysis in report. <br />
+Seperated into folders according to which section of report results used in. <br />
 Can be reproduced by running algorithms described specified in txt folder on the corresponding data
 
 
