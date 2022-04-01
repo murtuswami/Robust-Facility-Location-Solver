@@ -1,5 +1,7 @@
 from pyomo.environ import *
 """
+Creates a Pyomo model for solving UFLP with input data 
+
 Parameters
     dis: Dictionary of distances in the form ( (facility,customer ) : distance )
     op: Dictionary of opening costs 

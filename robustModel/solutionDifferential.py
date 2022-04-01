@@ -1,4 +1,13 @@
+"""
+Calculates the solution differential between sets of solutions to the UFLP
 
+Parameters
+    s: Array of solutions to the UFLP, where solutions are arrays containing tuples of assignments in the form (facility:value {1,0})
+Returns 
+    Returns an Integer corresponding to the number of assignment changes between all solutions in the set 
+Description 
+   Takes set of solutions and iterates over them pairwise, counting the number of differences in assignment
+"""
 
 def solutionDifferential(s):
     s1= 0
