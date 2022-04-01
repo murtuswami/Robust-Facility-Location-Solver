@@ -1,6 +1,18 @@
-
-
 from pyomo.environ import *
+
+"""
+Creates a Pyomo model for solving UFLP with input data 
+
+Parameters
+    dis: Dictionary of distances in the form ( (facility,customer ) : distance )
+    op: Dictionary of opening costs 
+    N:  Array of Facility
+    M:  Array of Customer Identities
+Returns 
+    Model ( not solved ) representing the given instance of the Uncapacitated Facility Location Problem 
+Description 
+    Creates an Pyomo model object for solving a given Uncapacitated Facility Location Problem instance 
+"""
 def make_model(dis,op,N,M):
     #distance is distances
     #op is opening costs 

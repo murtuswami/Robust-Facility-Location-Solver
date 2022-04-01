@@ -1,3 +1,7 @@
+
+"""
+Not for use, an example of an alternative implementation of the robust model where the deviations are included in the objective value of the nominal problem
+"""
 from pyomo.environ import *
 def make_robust_model(dis,op,N,M,d,dc):
  

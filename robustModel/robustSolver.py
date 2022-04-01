@@ -9,7 +9,7 @@ def robustSolver(wc,paramd,paramo,setN,setM,devDict):
     solutions = [] # array of n nominal solution values 
 
 #solve l nominal problems with modified deviations 
-    for l in devDict.keys():    
+    for l in devDict.keys():    #dictionary is sorted  so d1 >= d2 ... >= dl holds 
         dc = devDict.get(l)
         distances = paramd.copy()
         for node in distances.keys():
