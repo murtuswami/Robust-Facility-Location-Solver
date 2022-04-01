@@ -33,16 +33,15 @@ The Robust Solver implements Cardinality Constrained Robustness, where each dema
     * robustModel/worstCaseRealizations.py
     * robustModel/robustSingleSolve.py
 
-## Execution 
 
 Each folder contains a single dataset to run and produce output on.
 A more detailed exploration can be done by running on instances in the /Data directory
 All algorithms can accept datasets in the input format specified in 
 https://resources.mpi-inf.mpg.de/departments/d1/projects/benchmarks/UflLib/data-format.html
 
-### Running Local Search 
+## Running Local Search 
 The Fast Local Search implementation can be found in 
-#### Compare Local Searches 
+### Compare Local Searches 
 Compares running time between the Fast and Slow Local Search implementations. 
 Outputs four csv files containing total running time and process time at each neighbourhood step in same directory
 
@@ -54,7 +53,7 @@ python compareLocalSearches.py
 ```
 * When prompted by file dialog select the file ga250a-1 (or files from data folder) from the same directory
 * CSV files will be saved in /localSearch/compareLocalSearches
-#### Iterated Local Search
+### Iterated Local Search
 Runs Iterated Local Search to solve UFLP instance.
 Outputs csv file to same directory containing Best value obtained over iterated descents to local optimum 
 
@@ -66,7 +65,7 @@ python iteratedLocalSearch.py
 ```
 * When prompted by file dialog select the file ga250a-1 (or files from data folder) from same directory
 
-#### Average Descent Time 
+### Average Descent Time 
 Calculates the average descent time to local optimum using fast procedure 
 
 * Navigate to /localSearch/averageDescentTime
@@ -77,7 +76,7 @@ python averageDescentTime.py
 * When prompted by file dialog select ga250a-1 (or files from data folder) from same directory 
 
 
-### Running Optimization Solver
+## Running Optimization Solver
 Solves UFLP Data set using Pyomo model 
 Outputs CPLEX Log to same directory as a txt file
 
@@ -90,7 +89,7 @@ python solver.py
 
 
 
-### Running Robust Model 
+## Running Robust Model 
 
 
 ## Help
