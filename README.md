@@ -18,6 +18,7 @@ The Robust Solver implements Cardinality Constrained Robustness, where each dema
 * Python 3.8.8 + 
 * Pyomo 6.1.2 +
 * IBM ILOG CPLEX Interactive Optimizer 20.1.0.0 +
+* Anaconda *(optional)*
  
 ### Recommended Installation 
 
@@ -105,7 +106,7 @@ python robustSolverSingle.py
 ```
 *When prompted by file dialog select 
 
-### Robust Solver multiple Gamma values
+### Robust Solver Multiple Gamma Values
 Solves M robust solutions varying the number of worst case realizations from 0 to M where M is the number of customer nodes. 
 Output is a csv file containing entries in the form wc,robust solution value
 and a text file containing the solution differential for all these values
@@ -120,19 +121,34 @@ python robustModelVaryGamma.py
 
 * when prompted by file dialog select 111EuclS.txt from the same directory
 
-Note this file takes ~6 hours to run to completion since it needs to solve m*m instances of the UFLP
+ *Note this file takes ~6 hours to run to completion since it needs to solve m*m instances of the UFLP*
 
 
 
+### Data 
+/data
+Contains extracts from the two data sets from the Max Planck Institute For Informatics.
+Data is seperated into folders according to which section of the report they are used in.
+Access raw data at  https://resources.mpi-inf.mpg.de/departments/d1/projects/benchmarks/UflLib/packages.html
+
+* Euclidian Benchmarks 
+* Koerkel-Ghosh Asymmetric Benchmarks 
 
 
+Data folder contains data sets and their optimal/best known solutions 
+https://resources.mpi-inf.mpg.de/departments/d1/projects/benchmarks/UflLib/data-format.html
 
-## Help
+* Data sets are in .txt or FILE formats
+* Optimal & Best Known solutions are in .opt & .bub formats 
 
-Any advise for common problems or issues.
-```
-command to run if program contains helper info
-```
+
+### Results 
+/results
+Contains results used for data analysis in report. 
+Seperated into folders according to which section of report results used in. 
+Can be reproduced by running algorithms described specified in txt folder on the corresponding data
+
+
 
 ## Authors
 
@@ -143,19 +159,6 @@ Harsha Ramachandran
 * 1.0 
     * Initial Release 
 
-### Data 
-Contains extracts from the two data sets from the Max Planck Institute For Informatics
-Access at  https://resources.mpi-inf.mpg.de/departments/d1/projects/benchmarks/UflLib/packages.html
 
-* Euclidian Benchmarks 
-* Koerkel-Ghosh Asymmetric Benchmarks 
-
-
-Data folder contains data sets and their optimal/best known solutions 
-https://resources.mpi-inf.mpg.de/departments/d1/projects/benchmarks/UflLib/data-format.html
-
-Data is Seperated into folders based on report section they appear in 
-
-### Results 
 
 
