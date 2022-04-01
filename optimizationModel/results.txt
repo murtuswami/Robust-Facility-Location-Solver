@@ -1,0 +1,75 @@
+Solver command line: ['C:\\Program Files\\IBM\\ILOG\\CPLEX_Studio201\\cplex\\bin\\x64_win64\\cplex.exe']
+
+
+Welcome to IBM(R) ILOG(R) CPLEX(R) Interactive Optimizer 20.1.0.0
+  with Simplex, Mixed Integer & Barrier Optimizers
+5725-A06 5725-A29 5724-Y48 5724-Y49 5724-Y54 5724-Y55 5655-Y21
+Copyright IBM Corp. 1988, 2020.  All Rights Reserved.
+
+Type 'help' for a list of available commands.
+Type 'help' followed by a command name for more
+information on commands.
+
+CPLEX> Logfile 'cplex.log' closed.
+Logfile 'results.txt' open.
+CPLEX> New value for time limit in seconds: 180
+CPLEX> Problem 'C:\Users\USER\AppData\Local\Temp\tmpv2u7owyh.pyomo.lp' read.
+Read time = 0.02 sec. (1.04 ticks)
+CPLEX> Problem name         : C:\Users\USER\AppData\Local\Temp\tmpv2u7owyh.pyomo.lp
+Objective sense      : Minimize
+Variables            :   10101  [Nneg: 1,  Box: 10000,  Binary: 100]
+Objective nonzeros   :   10000
+Linear constraints   :   10101  [Less: 10000,  Equal: 101]
+  Nonzeros           :   30001
+  RHS nonzeros       :     101
+
+Variables            : Min LB: 0.000000         Max UB: 1.000000       
+Objective nonzeros   : Min   : 64.00000         Max   : 8565.000       
+Linear constraints   :
+  Nonzeros           : Min   : 1.000000         Max   : 1.000000       
+  RHS nonzeros       : Min   : 1.000000         Max   : 1.000000       
+CPLEX> Version identifier: 20.1.0.0 | 2020-11-10 | 9bedb6d68
+CPXPARAM_TimeLimit                               180
+Found incumbent of value 284979.000000 after 0.00 sec. (0.75 ticks)
+Tried aggregator 1 time.
+MIP Presolve eliminated 1 rows and 1 columns.
+Reduced MIP has 10100 rows, 10100 columns, and 30000 nonzeros.
+Reduced MIP has 100 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (12.45 ticks)
+Probing time = 0.00 sec. (0.69 ticks)
+Tried aggregator 1 time.
+Detecting symmetries...
+Reduced MIP has 10100 rows, 10100 columns, and 30000 nonzeros.
+Reduced MIP has 100 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.03 sec. (18.16 ticks)
+Probing time = 0.02 sec. (0.69 ticks)
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+Root relaxation solution time = 0.05 sec. (16.80 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+*     0+    0                       284979.0000        0.0000           100.00%
+*     0+    0                       177356.0000        0.0000           100.00%
+*     0     0      integral     0    98846.0000    98846.0000      652    0.00%
+Elapsed time = 0.16 sec. (67.12 ticks, tree = 0.00 MB, solutions = 3)
+
+Root node processing (before b&c):
+  Real time             =    0.16 sec. (67.62 ticks)
+Parallel b&c, 8 threads:
+  Real time             =    0.00 sec. (0.00 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    0.16 sec. (67.62 ticks)
+
+Solution pool: 3 solutions saved.
+
+MIP - Integer optimal solution:  Objective =  9.8846000000e+04
+Solution time =    0.16 sec.  Iterations = 652  Nodes = 0
+Deterministic time = 67.64 ticks  (433.62 ticks/sec)
+
+CPLEX> Incumbent solution written to file 'C:\Users\USER\AppData\Local\Temp\tmp1u00syro.cplex.sol'.
+CPLEX> 

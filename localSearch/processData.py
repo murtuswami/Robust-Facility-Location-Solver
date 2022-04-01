@@ -1,12 +1,22 @@
-""" Creates a file dialog window for selecting data for a UFLP instances. Processes data returns in format 
-    appropriate for solving with Local Search Method
+""" Creates a file dialog window for selecting data for a UFLP instances. 
+    Processes data returns in format appropriate for solving with Local Search Method
 """
 
 
 import tkinter                  # For data file select
 from tkinter import filedialog  # For filedialog 
 tkinter.Tk().withdraw() 
-
+"""
+Parameters
+    n/a
+Returns 
+    facilitynumber: Number of facilities in problem
+    customernumber : Number of customers in problem
+    distances : 2D array Where entries reflect distances between cities and customers
+    openingcosts: 1D array where entries reflect opening costs 
+Description 
+    Captures parameters as global variables and initializes instance LocalSearchFast
+"""
 
 def getAndProcessData() : 
     tkinter.Tk().withdraw() # prevents an empty tkinter window from appearing
