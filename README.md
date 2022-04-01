@@ -40,7 +40,21 @@ All algorithms can accept datasets in the input format specified in
 https://resources.mpi-inf.mpg.de/departments/d1/projects/benchmarks/UflLib/data-format.html
 
 ## Running Local Search 
-The Fast Local Search implementation can be found in 
+The Fast Local Search  implementation can be found in /localSearch/localSearchFast.py
+This is the fastest implementation and reccomended for solving purposes
+
+### Iterated Local Search
+Runs Iterated Local Search to solve UFLP instance.
+Outputs csv file to same directory containing Best value obtained over iterated descents to local optimum 
+
+
+* Navigate to /localSearch/compareLocalSearches
+* Execute following command in CLI 
+```
+python iteratedLocalSearch.py
+```
+* When prompted by file dialog select the file ga250a-1 (or files from data folder) from same directory
+
 ### Compare Local Searches 
 Compares running time between the Fast and Slow Local Search implementations. 
 Outputs four csv files containing total running time and process time at each neighbourhood step in same directory
@@ -53,17 +67,6 @@ python compareLocalSearches.py
 ```
 * When prompted by file dialog select the file ga250a-1 (or files from data folder) from the same directory
 * CSV files will be saved in /localSearch/compareLocalSearches
-### Iterated Local Search
-Runs Iterated Local Search to solve UFLP instance.
-Outputs csv file to same directory containing Best value obtained over iterated descents to local optimum 
-
-
-* Navigate to /localSearch/compareLocalSearches
-* Execute following command in CLI 
-```
-python iteratedLocalSearch.py
-```
-* When prompted by file dialog select the file ga250a-1 (or files from data folder) from same directory
 
 ### Average Descent Time 
 Calculates the average descent time to local optimum using fast procedure 
@@ -80,7 +83,7 @@ python averageDescentTime.py
 Solves UFLP Data set using Pyomo model 
 Outputs CPLEX Log to same directory as a txt file
 
-* Navigate to /localSearch/optimizationModel
+* Navigate to /optimizationModel
 * Execute the following command in the CLI 
 ```
 python solver.py 
@@ -88,8 +91,40 @@ python solver.py
 * When prompted by file dialog select either 3011EuclS.txt/ga250a-4 (or others from data folder) from same directory
 
 
-
 ## Running Robust Model 
+
+### Single Robust Solver
+Produces a single robust solution with a specified number of demand nodes at their worst case realizations (75% by default)
+Output is a single text file containing Robust Solution Objective Value
+
+* Navigate to /robustModel
+* Execute the following command in the CLI 
+
+```
+python robustSolverSingle.py
+```
+*When prompted by file dialog select 
+
+### Robust Solver multiple Gamma values
+Solves M robust solutions varying the number of worst case realizations from 0 to M where M is the number of customer nodes. 
+Output is a csv file containing entries in the form wc,robust solution value
+and a text file containing the solution differential for all these values
+
+
+* Navigate to /robustModel
+* Execute the following command in the CLI
+
+```
+python robustModelVaryGamma.py
+```
+
+* when prompted by file dialog select 111EuclS.txt from the same directory
+
+Note this file takes ~6 hours to run to completion since it needs to solve m*m instances of the UFLP
+
+
+
+
 
 
 ## Help
