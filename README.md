@@ -28,7 +28,7 @@ The Robust Solver implements Cardinality Constrained Robustness, where each dema
     conda install -c conda-forge pyomo
     ```
 * If using CPLEX for the optimization model install from https://www.ibm.com/analytics/cplex-optimizer
-* If using another Optimzation solver with a Pyomo interface update the SolverFactory object parameters in 
+* If using another Optimization solver with a Pyomo interface update the SolverFactory object parameters in 
     * optimizationModel/solver.py
     * robustModel/robustModelVaryGamma.py
     * robustModel/worstCaseRealizations.py
@@ -42,7 +42,7 @@ https://resources.mpi-inf.mpg.de/departments/d1/projects/benchmarks/UflLib/data-
 
 ## Running Local Search 
 The Fast Local Search  implementation can be found in /localSearch/localSearchFast.py
-This is the fastest implementation and reccomended for solving purposes
+This is the fastest implementation and recommended for solving purposes
 
 ### Iterated Local Search
 Runs Iterated Local Search to solve UFLP instance.
@@ -72,12 +72,13 @@ python compareLocalSearches.py
 ### Average Descent Time 
 Calculates the average descent time to local optimum using fast procedure 
 
-* Navigate to /localSearch/averageDescentTime
+* Navigate to /localSearch
 * Execute the following command in the CLI
 ```
 python averageDescentTime.py
 ```
 * When prompted by file dialog select ga250a-1 (or files from data folder) from same directory 
+* CSV files will be saved in /localSearch
 
 
 ## Running Optimization Solver
@@ -90,6 +91,7 @@ Outputs CPLEX Log to same directory as a txt file
 python solver.py 
 ```
 * When prompted by file dialog select either 3011EuclS.txt/ga250a-4 (or others from data folder) from same directory
+* Txt files will be saved in /optimizationModel
 
 
 ## Running Robust Model 
@@ -104,7 +106,11 @@ Output is a single text file containing Robust Solution Objective Value
 ```
 python robustSolverSingle.py
 ```
-*When prompted by file dialog select 
+* When prompted by file dialog select 111EuclS.txt from the same directory
+* txt file will be saved in /robustModel
+
+*solves m instances of the UFLP using Pyomo model*
+
 
 ### Robust Solver Multiple Gamma Values
 Solves M robust solutions varying the number of worst case realizations from 0 to M where M is the number of customer nodes. 
@@ -120,15 +126,30 @@ python robustModelVaryGamma.py
 ```
 
 * when prompted by file dialog select 111EuclS.txt from the same directory
+* csv files outputted to /robustModel
+
 
  *Note this file takes ~6 hours to run to completion since it needs to solve m*m instances of the UFLP*
 
+### Worst Case Realizations 
 
+Solves instances of UFLP problem with worst case realizations with varying percentage deviations. 
+Solves for both interval and box uncertainty.Outputs are two csv files interval.csv and box.csv.
+Each file contains entries with the percentage deviation and worst case realization value.
+
+* Navigate to /robustModel
+* Execute the following command in the CLI
+
+```
+python robustWorstCaseRealizations.py
+```
+* when prompted by file dialog select 111EuclS.txt from the same directory
+* csv files outputted to /robustModel
 
 ## Data 
-/data
+
 Contains extracts from the two data sets from the Max Planck Institute For Informatics.
-Data is seperated into folders according to which section of the report they are used in.
+Data is Separated into folders according to which section of the report they are used in.
 Access raw data at  https://resources.mpi-inf.mpg.de/departments/d1/projects/benchmarks/UflLib/packages.html
 
 * Euclidian Benchmarks 
@@ -143,9 +164,9 @@ https://resources.mpi-inf.mpg.de/departments/d1/projects/benchmarks/UflLib/data-
 
 
 ## Results 
-/results <br />
-Contains results used for data analysis in report. <br />
-Seperated into folders according to which section of report results used in. <br />
+
+Contains results used for data analysis in report. 
+Separated into folders according to which section of report results used in. 
 Can be reproduced by running algorithms described specified in txt folder on the corresponding data
 
 

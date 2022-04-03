@@ -25,7 +25,6 @@ class LocalSearchFast:
         self.distances = distances 
 
 
-
     """
     Parameters
         n/a

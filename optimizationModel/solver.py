@@ -1,8 +1,5 @@
 """ Imports data file, processes it, define a Pyomo model for solving the UFLP and solve with processed data as input"""
-import os
-import tkinter
-from tkinter import filedialog
-import os
+
 import pyomo.environ as pyo
 from pyomo.opt import SolverFactory
 from pyomo.environ import *

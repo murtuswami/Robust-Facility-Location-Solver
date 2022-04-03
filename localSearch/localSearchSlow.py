@@ -78,7 +78,7 @@ class LocalSearchSlow:
             for n in opened: 
                 dist = self.distances[n][i]
 
-                if n != x and (second_best == None or dist < second_best): # row X column, We iterate to find the second highest
+                if n != x and (second_best == None or dist < second_best): # row X column, iterate to find the second highest
                     second_best = dist
                     city_number = n
             second_closest_values.append(city_number)
@@ -90,7 +90,7 @@ class LocalSearchSlow:
                 profit = 0 
                 for i,n in enumerate(cur): # for each customer calculate the new value 
                     if n != y: #if the current city is not the one we are replacing         
-                        if self.distances[x][i]< self.distances[n][i]: #if the replacement distance to this customer is less than its current we will replace it 
+                        if self.distances[x][i]< self.distances[n][i]: #if the replacement distance to this customer is less than its current  replace it 
                             ret[i] = x
                             profit = profit + self.distances[n][i] - self.distances[x][i] # profit  is (current - new )  for this customer
                         
@@ -101,8 +101,8 @@ class LocalSearchSlow:
                             else:
                                 ret[i] = second_closest_values[i]
                                 profit = profit + self.distances[n][i] - self.distances[second_closest_values[i]][i] # accounts for negative profit from moving to second best value 
-                profit = profit + self.facilsOpenCost[y] - self.facilsOpenCost[x] #We gain in profit the opening cost of y since we are not going to open it  
-                                                                                  #We lose x since we are opeining it 
+                profit = profit + self.facilsOpenCost[y] - self.facilsOpenCost[x] # gain in profit the opening cost of y since  not going to open it  
+                                                                                  #lose x since opening it
                 if  highest_neighbour_profit == None or profit > highest_neighbour_profit:
                     highest_neighbour = ret
                     highest_neighbour_profit = profit 
@@ -113,11 +113,11 @@ class LocalSearchSlow:
             ret = copy.copy(cur)
             profit = 0 
             for i,n in enumerate(cur): # for each customer calculate the new value 
-                if n == x:             #if the current city is not the one we are closing , then there is no change
+                if n == x:             #if the current city is not the one being closed , then there is no change
                     profit = profit + self.distances[x][i] - self.distances[second_closest_values[i]][i] #If customer was served by this
                     ret[i] = second_closest_values[i]                            #Minus from profit difference between best and second best 
-                                                                                                   #Since we will switch to second best
-            profit = profit + self.facilsOpenCost[x] # We gain profit of the cost of opening x since we are not opening it 
+                                                                                                   #Since switching to second best
+            profit = profit + self.facilsOpenCost[x] # gain profit of the cost of opening x since we are not opening it 
             if  highest_neighbour_profit == None or profit > highest_neighbour_profit:
                 highest_neighbour = ret 
                 highest_neighbour_profit = profit 
@@ -130,15 +130,13 @@ class LocalSearchSlow:
             for i,n in enumerate(cur): # for each customer calculate the new value 
                 if self.distances[x][i] < self.distances[n][i]:             #so if the new city is closer for this customer set it 
                     profit = profit  + self.distances[n][i] - self.distances[x][i] #Minus from profit difference between best and second best       
-                    ret[i] = x                                                      # since we will switch to second best
-            profit = profit - self.facilsOpenCost[x] # We lose the profit of the cost of opening x since we are opening it 
+                    ret[i] = x                                                      # since switching to second best
+            profit = profit - self.facilsOpenCost[x] # lose the profit of the cost of opening x since we are opening it 
             if  highest_neighbour_profit == None or profit > highest_neighbour_profit:
                 highest_neighbour = ret #swap y with x 
                 highest_neighbour_profit = profit 
               
               
-    
-        #get the new solution with swap (x,y) by generating it with a variant on the above method and return it 
     
       
         return highest_neighbour

@@ -1,13 +1,13 @@
-""" Creates a file dialog window for selecting data for a UFLP instances. 
-    Processes data returns in format appropriate for solving with Local Search Method
-"""
-
 
 import tkinter                  # For data file select
 from tkinter import filedialog  # For filedialog 
 tkinter.Tk().withdraw() 
 
-"""
+
+""" 
+Creates a file dialog window for selecting data for a UFLP instances. 
+    Processes data returns in format appropriate for solving with Local Search Method
+
 Parameters
     n/a
 Returns 

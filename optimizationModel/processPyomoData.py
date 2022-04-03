@@ -34,7 +34,7 @@ def processPyomoData():
     del arr[:2]
     m = int(initVals[1])
     n = int(initVals[0]) 
-    print(m)
+
     M = [*range(1,m+1)]
     N = [*range(1,n+1)]
     o ={}
