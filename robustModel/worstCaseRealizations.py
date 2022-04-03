@@ -23,7 +23,7 @@ deviations = []
 
 
 dp = 50 #deviation percentage, will generate multiple deviations up to and include this percentage 
-f = open("worstCaseRealisations.csv","w")
+#f = open("worstCaseRealisations.csv","w")
 
 p=0
 while p <= dp:
@@ -60,19 +60,17 @@ while p <= dp:
     opt.solve(worstCaseBoxModel)
     
     print("Worst Case Realization", pyo.value(worstCaseModel.obj),"Box Worst Case:" ,pyo.value(worstCaseBoxModel.obj))
+
+    f = open("interval.csv","a")
     f.write(str(p))
     f.write(",")
     f.write(str(pyo.value(worstCaseModel.obj)))
     f.write(",")
-    f.write("interval")
     f.write("\n")
-
+    f = open("box.csv","a")
     f.write(str(p))
     f.write(",")
     f.write(str(pyo.value(worstCaseBoxModel.obj)))
     f.write(",")
-    f.write("box")
     f.write("\n")
-
-   
     p = p + 1

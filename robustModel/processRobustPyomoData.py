@@ -10,12 +10,11 @@ Parameters
 Returns 
    n: number of facilities
    m: number of customers 
-   d: dictionary of deviations in form (Facilty,Customer): Distance 
+   d: dictionary of distances in form (Facilty,Customer): Distance 
    o: dictionary of opening costs in the form  Facility : Cost
    arrRepresentation: A 2D representation of d (for calculating deviations )
    N: Array containing facility identities
    M Array containing customer identities
-
 
    
 Description 
@@ -35,15 +34,13 @@ def processRobustPyomoData():
     del arr[:2]
     m = int(initVals[1])
     n = int(initVals[0]) 
-    print(m)
+
     M = [*range(1,m+1)]
     N = [*range(1,n+1)]
     o ={}
     d={}
     arrRepresentation = [[] for _ in range(0,m)]
-    print(arrRepresentation)
 
-    print(m)
     for x in arr:
         fac = x[0] # first entry is the facility identifier 
         cost = x[1] # second entry is the cost of opening said facility 

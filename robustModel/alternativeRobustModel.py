@@ -1,13 +1,15 @@
 
 """
-Not for use, an example of an alternative implementation of the robust model where the deviations are included in the objective value of the nominal problem
+Not for use, 
+an example of an alternative implementation of the robust model.
+Deviations are included in the objective value of the nominal problem.
+
 """
 from pyomo.environ import *
 def make_robust_model(dis,op,N,M,d,dc):
- 
     model = ConcreteModel(name="(uflp_robust)")
-    model.x = Var(N, M, bounds=(0,1)) # (selected routes )
-    model.y = Var(N, within=Binary)       #selected facilities
+    model.x = Var(N, M, bounds=(0,1)) 
+    model.y = Var(N, within=Binary)       
 
     def obj_rule(model):    
         return sum( (dis[n,m] +max((d[m]- dc),0))*model.x[n,m] for n in N for m in M) + sum(op[n]*model.y[n] for n in N ) 
