@@ -20,7 +20,7 @@ Description
 """
 
 def getAndProcessData() : 
-    tkinter.Tk().withdraw() # prevents an empty tkinter window from appearing
+    tkinter.Tk().withdraw() 
     print("Please select file with input data")
     inputdatapath = filedialog.askopenfilename()
     datafile = open(inputdatapath)

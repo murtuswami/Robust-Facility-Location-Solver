@@ -1,11 +1,9 @@
+import random 
 """
 Generates a random solution to to a given instance of a uncapacitated facility location problem 
 First select and open a random number of facilities 
 Then extract a solution array from the open set of facilities
-"""
-import random 
 
-"""
 Parameters
     f: Number of facilities in problem
     c: Number of customers in problem

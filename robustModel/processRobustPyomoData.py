@@ -10,7 +10,7 @@ Parameters
 Returns 
    n: number of facilities
    m: number of customers 
-   d: dictionary of distances in form (Facilty,Customer): Distance 
+   d: dictionary of distances in form (Facility,Customer): Distance 
    o: dictionary of opening costs in the form  Facility : Cost
    arrRepresentation: A 2D representation of d (for calculating deviations )
    N: Array containing facility identities
@@ -18,7 +18,7 @@ Returns
 
    
 Description 
-    Creates an Pyomo model object for solving a given Uncapacitated Facility Location Problem instance 
+   Returns Data in appropriate format for solving with Pyomo model
 """
 
 def processRobustPyomoData():

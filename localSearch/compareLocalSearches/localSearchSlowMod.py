@@ -1,7 +1,7 @@
 """
 Slow Local Search procedure with modified file writing to collect information on time between neighbour generation
 Modified sections highlighted below 
-Detailed comments ommited, see  /localSearch/localSearchSlow.py for detailed documentation
+Detailed comments omitted, see  /localSearch/localSearchSlow.py for detailed documentation
 """
 import copy
 import time

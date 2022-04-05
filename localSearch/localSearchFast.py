@@ -80,7 +80,7 @@ class LocalSearchFast:
             city_number = None
             for n in opened: 
                 dist = self.distances[n][i]
-                if n != x and (second_best == None or dist < second_best): # row X column, We iterate to find the second highest
+                if n != x and (second_best == None or dist < second_best): # row X column, iterate to find the second highest
                     second_best = dist
                     city_number = n
             second_closest_values.append(city_number)

@@ -4,14 +4,10 @@
  Writes results to csv in the form (iteration,value obtained, best value obtained so far)
 """
 
-import os
-import importlib.util
-### Relative imports from parent directory  ### 
 from localSearchFast import LocalSearchFast
 from generateRandomSolution import generateRandomSolution
 from processData import getAndProcessData
 
-    ### End of copied code ###
 ### Data Selection and processing ### 
 
 facilitynumber,customernumber,distances,openingcosts = getAndProcessData()

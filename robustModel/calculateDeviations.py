@@ -3,7 +3,7 @@ Creates deviations on an input distances to the Facility Location Problem
 
 Parameters
     dp: percentage amount to deviate distances
-    dist: 2D Array representation of distances where indicies represent customers and facilities
+    dist: 2D Array representation of distances where indices represent customers and facilities
     n: number of facilities 
 
 Returns 

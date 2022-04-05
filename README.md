@@ -49,7 +49,7 @@ Runs Iterated Local Search to solve UFLP instance.
 Outputs csv file to same directory containing Best value obtained over iterated descents to local optimum 
 
 
-* Navigate to /localSearch/compareLocalSearches
+* Navigate to /localSearch
 * Execute following command in CLI 
 ```
 python iteratedLocalSearch.py
@@ -167,7 +167,7 @@ https://resources.mpi-inf.mpg.de/departments/d1/projects/benchmarks/UflLib/data-
 
 Contains results used for data analysis in report. 
 Separated into folders according to which section of report results used in. 
-Can be reproduced by running algorithms described specified in txt folder on the corresponding data
+Can be reproduced by running algorithms described specified in report on the corresponding data
 
 
 
